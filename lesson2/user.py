@@ -14,7 +14,47 @@
 
 
 class User:
-    pass
+    def __init__(self, name, password, is_admin=False, is_logged_in=True):
+        self.username = name
+        self.user_password = password
+        self._is_admin = is_admin
+        self._is_logged_in = is_logged_in
+
+
+    @property
+    def name(self):
+        return self.username
+
+
+    @name.setter
+    def name(self, new_name):
+        self.username = new_name
+
+
+    @property
+    def password(self):
+        return self.user_password
+
+
+    @password.setter
+    def password(self, new_password):
+        self.user_password = new_password
+
+
+    @property
+    def is_admin(self):
+        return self._is_admin
+
+
+    def login(self, password):
+        if self.user_password == password:
+            return True
+        return False
+
+
+    def logout(self):
+        self._is_logged_in = False
+
 
 
 # код для проверки 
@@ -31,3 +71,4 @@ print(user1.is_admin)  # True
 
 user1.login("newpassword")  # True
 user1.logout()
+print(user1._is_logged_in)
