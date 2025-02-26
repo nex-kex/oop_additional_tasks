@@ -8,7 +8,13 @@
 
 
 class Logger:
-    pass
+    def __init__(self, filename):
+        self.filename = filename
+
+
+    def __call__(self, message):
+        with open(self.filename, "w", encoding="utf-8") as file:
+            file.write(message)
 
 
 # код для проверки 
