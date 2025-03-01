@@ -11,10 +11,24 @@ class Employee:
         self.pay = pay
 
 
+    def __add__(self, other):
+        if isinstance(other, (int, float)):
+            return self.pay + other
+        elif isinstance(other, Employee):
+            return self.pay + other.pay
+        raise TypeError("Можно прибавлять только числа")
+
+
 class Client:
 
     def __init__(self, pay):
         self.pay = pay
+
+
+    def __add__(self, other):
+        if isinstance(other, (int, float)):
+            return other
+        raise TypeError("Можно прибавлять только числа")
 
 
 class Developer(Employee):

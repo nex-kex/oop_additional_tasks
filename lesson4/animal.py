@@ -14,8 +14,28 @@
 """
 
 
-class Aminal:
-    pass
+class Animal:
+
+    def __init__(self, name):
+        self.name = name
+
+    @staticmethod
+    def speak():
+        print("?")
+
+
+class Dog(Animal):
+
+    @staticmethod
+    def speak():
+        print("Woof!")
+
+
+class Cat(Animal):
+
+    @staticmethod
+    def speak():
+        print("Meow!")
 
 
 # код для проверки 
