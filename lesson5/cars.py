@@ -1,5 +1,5 @@
 """
-Напишите класс Car, представляющий машину, имеющий следующие свойства:
+Напишите представляющий машину класс Car, имеющий следующие свойства:
 
 - бренд
 - модель
@@ -13,15 +13,37 @@
 
 
 class Car:
-    pass
+
+    def __init__(self, brand, model, year):
+        self.brand = brand
+        self.model = model
+        self.year = year
+
+
+    def get_set_del(self):
+        self.year -= 10
+        del self.brand
+        self.brand = "New brand"
 
 
 class CarSlots:
-    pass
+    __slots__ = ("brand", "model", "year")
+
+
+    def __init__(self, brand, model, year):
+        self.brand = brand
+        self.model = model
+        self.year = year
+
+
+    def get_set_del(self):
+        self.year -= 10
+        del self.brand
+        self.brand = "New brand"
 
 
 car = Car('Toyota', 'Corolla', 2022)
-car_slots = Car('Toyota', 'Crown', 1990)
+car_slots = CarSlots('Toyota', 'Crown', 1990)
 
 import timeit
 
